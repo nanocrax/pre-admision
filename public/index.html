@@ -8,8 +8,6 @@
   <script src="main.js"></script>
 </head>
 
-
-
 <body>
   <div class="h1 text-center mb-5 mt-3" style="background-color:rgb(234, 255, 234);color:rgb(32, 88, 32)">Clinica de Ojos SRL</div>
 
@@ -19,28 +17,13 @@
       <div class="card container">
         <h3 class="card-header text-center">Llamar Numeros</h3>
         <div class="car-body pt-3">
-          <form onsubmit="return addMessage(this)">
+         
             <div class="row">
               <div class="col input-group mb-3">
                 <div class="input-group-prepend">
                   <label class="input-group-text" for="inputPuesto">Puesto</label>
                 </div>
                 <select class="custom-select" id="inputPuesto">
-                  <option selected>1</option>
-                  <option value="1">2</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
-              </div>
-    
-              <div class="col input-group mb-3">
-                <div class="input-group-prepend">
-                  <label class="input-group-text" for="inputnumero">Numero</label>
-                </div>
-                <select class="custom-select" id="inputNumero">
-                  <option selected>1</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -48,26 +31,46 @@
                   <option value="5">5</option>
                 </select>
               </div>
+    
+              <div class="col input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="inputnumero">Nro</label>
+                </div>
+                <select class="custom-select" id="inputNumero">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="Sin Nro">-</option>
+                </select>
+              </div>
             </div>
             
     
             <div class="form-group">
               <label for="exampleFormControlTextarea1">Texto</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <textarea class="form-control" id="texto" rows="3"></textarea>
             </div>
     
             <div class="form-group">
-              <button class="btn btn-primary btn-block" type="submit">
+              <button class="btn btn-primary btn-block" onclick="addMessage()">
                 Llamar
               </button>
             </div>
-          </form>
+         
         </div>
       </div>
     </div>
+
     <div class="col-md-3">
-      <div id="messages"></div>
+      <div id="puesto1"></div>
+      <div id="puesto2"></div>
+      <div id="puesto3"></div>
+      <div id="puesto4"></div>
+      <div id="puesto5"></div>
     </div>
+
   </div>
     
 
