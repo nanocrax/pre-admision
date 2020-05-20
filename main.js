@@ -1,4 +1,3 @@
-//Probar con un solo array o con varios sockets
 
 var express = require('express');
 var app = express();
@@ -10,31 +9,31 @@ var io = require('socket.io')(server);
 var messages1 = [{
   id: 1,
   numero: "0",
-  texto:"-"
+  texto:""
 }];
 
 var messages2 = [{
   id: 1,
-  numero: "081",
-  texto:"-"
+  numero: "0",
+  texto:""
 }];
 
 var messages3 = [{
   id: 1,
-  numero: "22",
-  texto:"-"
+  numero: "0",
+  texto:""
 }];
 
 var messages4 = [{
   id: 1,
-  numero: "077",
-  texto:"-"
+  numero: "0",
+  texto:""
 }];
 
 var messages5 = [{
   id: 1,
-  numero: "088",
-  texto:"-"
+  numero: "0",
+  texto:""
 }];
 
 app.use(express.static('public'));
