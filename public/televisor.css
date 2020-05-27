@@ -1,0 +1,12 @@
+.mydiv1 {
+	animation: BGcolorChanging-4colors 2s linear alternate both;
+}
+
+@keyframes BGcolorChanging-4colors {
+	0% {
+	  background: #76f111;
+	}
+	50% {
+	  background: #76f111;
+	}
+  }

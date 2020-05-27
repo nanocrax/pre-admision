@@ -1,4 +1,4 @@
-var socket = io.connect('http://localhost:8080', { 'forceNew': true });
+var socket = io.connect('http://localhost:3000', { 'forceNew': true });
 
 //Pintamos los puestos y sus numeros
 socket.on('messages1', function(data1) {

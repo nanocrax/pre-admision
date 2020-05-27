@@ -1,21 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
     <link rel="stylesheet" href="https://bootswatch.com/4/cerulean/bootstrap.min.css" >
+    <link rel="stylesheet" href="gradientetele.css">
+    <link rel="stylesheet" href="televisor.css">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Televisor</title>
     <script src="/socket.io/socket.io.js"></script>
     <script src="televisor.js"></script>
-</head>
+    <script type="text/javascript">
+            function startTime(){
+            today=new Date();
+            h=today.getHours();
+            m=today.getMinutes();
+            s=today.getSeconds();
+            m=checkTime(m);
+            s=checkTime(s);
+            document.getElementById('reloj').innerHTML=h+":"+m+":"+s;
+            t=setTimeout('startTime()',500);}
+            function checkTime(i)
+            {if (i<10) {i="0" + i;}return i;}
+            window.onload=function(){startTime();}
+    </script>
+    </head>
 <body>
-    <h1>TELEVISOR</h1>
-    <div class="col-md-3">
-        <div id="puesto1" class="container border-bottom border-top"></div>
-        <div id="puesto2" class="container border-bottom mt-2"></div>
-        <div id="puesto3" class="container border-bottom mt-2"></div>
-        <div id="puesto4" class="container border-bottom mt-2"></div>
-        <div id="puesto5" class="container border-bottom mt-2"></div>
+    <div class="col container">
+        <div class="row">
+            <div class="col-md-6">
+                <div id="puesto1" class="container border-bottom border-top border-info"></div>
+                <div id="puesto2" class="container border-bottom border-info"></div>
+                <div id="puesto3" class="container border-bottom border-info"></div>
+                <div id="puesto4" class="container border-bottom border-info"></div>
+                <div id="puesto5" class="container border-bottom border-info"></div>
+            </div>
+            <div class="col-md-6 card container">
+                <video src="videoclinica.mp4" width="640" height="480" autoplay muted loop>
+                    Tu navegador no implementa el elemento <code>video</code>.
+                </video>
+            </div>
+        </div>
+        <div class="card border-bottom border-top border-white">
+            <div class="row">
+                <div class="col-md-6" style="float:left;font-family:‘DS-Digital’; background-color: rgb(1, 78, 59); font-size: 5vw; color: rgb(255, 255, 255);text-align: center">
+                    <script type="text/javascript">
+                    var  today = new Date();
+                    var m = today.getMonth() + 1;
+                    var mes = (m < 10) ? '0' + m : m;
+                    document.write(today.getDate(),'/' +mes,'/'+today.getFullYear());
+                    </script>
+                </div>
+                <div class="col-md-6 border-left border-white" id="reloj" style="font-family:‘DS-Digital’; background-color: rgb(1, 78, 59); ;font-size: 5vw; color: rgb(255, 255, 255);text-align: center "></div>
+
+            </div>
+        </div>
     </div>
 </body>
 </html>
