@@ -3,6 +3,8 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
+
+//Arrays iniciales
 var messages1 = [{
   id: 1,
   numero: "0",
@@ -42,12 +44,12 @@ app.get('/televisor', function(req, res) {
 
 io.on('connection', function(socket) {
   console.log('Alguien se ha conectado con Sockets');
-  //Emitimos los mensajes para todos los puestos
-  socket.emit('messages1', messages1);
+  //Emitimos los mensajes para todos los puestos 
+  /*socket.emit('messages1', messages1);
   socket.emit('messages2', messages2);
   socket.emit('messages3', messages3);
   socket.emit('messages4', messages4);
-  socket.emit('messages5', messages5);
+  socket.emit('messages5', messages5);*/
 
   //Escuchamos los mensajes por cada puesto
   socket.on('new-message1', function(data1) {
