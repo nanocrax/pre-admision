@@ -1,0 +1,16 @@
+.select1 {
+    text-align-last: center;
+    width:100px;
+    height: 40px;
+    border-radius: 1px;
+    border: 1px solid #ddd;
+    font-weight: 600;
+    color: #0e0d0d;
+    font-size: 2vw;
+    background-color:blanchedalmond
+}
+
+.button1{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+    height: 50px;
+}

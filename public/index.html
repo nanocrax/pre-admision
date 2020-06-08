@@ -2,41 +2,119 @@
 <html lang="en">
 <link rel="stylesheet" href="https://bootswatch.com/4/cerulean/bootstrap.min.css" >
 <link rel="stylesheet" href="/gradienterecep.css">
+<link rel="stylesheet" href="/index.css">
 <head>
   <meta charset="UTF-8">
   <title>My Aplicación con Sockets</title>
   <script src="/socket.io/socket.io.js"></script>
   <script src="main.js"></script>
-  
+  <script type="text/javascript">
+    function startTime(){
+    today=new Date();
+    h=today.getHours();
+    m=today.getMinutes();
+    s=today.getSeconds();
+    m=checkTime(m);
+    s=checkTime(s);
+    document.getElementById('reloj').innerHTML=h+":"+m+":"+s;
+    t=setTimeout('startTime()',500);}
+    function checkTime(i)
+    {if (i<10) {i="0" + i;}return i;}
+    window.onload=function(){startTime();}
+  </script>
 </head>
 
 <body>
   
-  <div class="h1 text-center mt-3 mb-4" style="color:rgb(15, 11, 83)">Clinica de Ojos SRL</div>
-
-  <div class="row">
+  <div class="row mr-2 ml-3">
+    <div class="col-md-10 h1 mt-1 mb-3 border-bottom border-white"  style="color:rgb(255, 255, 255);font-size: 5vw;text-align: center; font-family:'Times New Roman', Times, serif;">Clinica de Ojos SRL</div>
     
-    <div class="col-md-3">
-      
-
-
+    <div class="col-md-2 pt-2" style="text-align: right;">
+      <div style="font-family:‘DS-Digital’; font-size: 2vw; color: rgb(7, 7, 7)">
+          <script type="text/javascript">
+            var today = new Date();
+            var m = today.getMonth() + 1;
+            var mes = (m < 10) ? '0' + m : m;
+            document.write(today.getDate(), '/' + mes, '/' + today.getFullYear());
+          </script>
+      </div>
+      <div id="reloj" style="font-family:‘DS-Digital’;font-size: 2vw; color: rgb(31, 0, 167);"></div>
     </div>
-    <div class="col-md-3">
-      
-      
+</div>
+  
 
+  <div class="row mr-3 ml-1">
+    <div class="col-md-6">
+      <div class="card container">
+        <div class="card-header text-center pb-1">
+          <h3>Admisión</h3>
+        </div>
+        <form action="">
+          <div class="card-body">
+            <button type="button" class="text-center btn-block mb-3 btn btn-info" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 2vw; height: 50px;">Cualquier Médico</button>
+            <table class="table text-center" >
+              <tbody>
+                <tr>
+                  <td>
+                    <button type="button" class="text-center btn-block font-weight-bold btn btn-success button1" onclick = "imprSelec(1,2,'Dr. Siufi E.')">Dr. Siufi E.</button>
+                    <div id="nrosSiufiE" class="container"></div>
+                  </td>
+                  <td>
+                    <button type="button" class="text-center btn-block font-weight-bold btn btn-success button1" onclick = "imprSelec(1,2,'Dr. Jure A. (P)')">Dr. Jure A. (P)</button>
+                    <div id="nrosJureA" class="container"></div>
+                  </td>
+                  <td>
+                    <button type="button" class="text-center btn-block font-weight-bold btn btn-success button1" onclick = "imprSelec(1,2,'Dra. Ase')">Dra. Ase</button>
+                    <div id="nrosAse" class="container"></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <button type="button" class="text-center btn-block font-weight-bold btn btn-success button1" onclick = "imprSelec(1,2,'Dr. Vidal')">Dr. Vidal</button>
+                    <div id="nrosVidal" class="container"></div>
+                  </td>
+                  <td > 
+                    <button type="button" class="text-center btn-block font-weight-bold btn btn-success button1" onclick = "imprSelec(1,2,'Dr. Siufi L. ')">Dr. Siufi L.</button>
+                    <div id="nrosSiufiL" class="container"></div>
+                  </td>
+                  <td>
+                    <button type="button" class="text-center btn-block font-weight-bold btn btn-success button1" onclick = "imprSelec(1,2,'Dr. Jure F. (H)')">Dr. Jure F. (H)</button>
+                    <div id="nrosJureF" class="container"></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <button type="button" class="text-center btn-block font-weight-bold btn btn-success button1" onclick = "imprSelec(1,2,'Dra Berrafato')">Dra. Berrafato</button>
+                    <div id="nrosBerrafato" class="container"></div>
+                  </td>
+                  <td>
+                    <button type="button" class="text-center btn-block font-weight-bold btn btn-success button1" onclick = "imprSelec(1,43,'Dra. Zarif A.')">Dra. Zarif A.</button>
+                    <div id="nrosZarifA" class="container"></div>
+                  </td>
+                  <td>
+                    <button type="button" class="text-center btn-block font-weight-bold btn btn-success button1" onclick = "imprSelec(1,2,'Dra. Tonelli')">Dra. Tonelli</button>
+                    <div id="nrosTonelli" class="container"></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </form>
+        
+      </div>
     </div>
+    
 
-    <div class="col-md-3">
+    <div class="col-md-3 border-left border-dark ">
       <div class="card container">
         <h3 class="card-header text-center">Llamar a Numeros</h3>
         <div class="car-body pt-3">
 
             <div class="form-group">
-              <div class="input-group text-center" style="background-color: rgb(44, 150, 111);">
-                <div class="container">
+              <div class="input-group text-center">
+                <div class="container border-bottom border-light ">
                   <h4>Puesto</h4>
-                  <select class="custom-select " style="font-size: 1,5vw" id="inputPuesto">
+                  <select class="select1 mb-3" id="inputPuesto">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -46,17 +124,17 @@
                 </div>
               </div>
   
-              <div class="input-group text-center" style="background-color: rgb(7, 26, 19);" >
-                <div class="container">
+              <div class="input-group text-center" >
+                <div class="container border-bottom border-light">
                   <h4>Numero</h4>
-                  <input style="font-size: 1,9vw" class="rounded text-center" type="number" id="inputNumero" value="1" min="1" max="119" step="1">
+                  <input class="select1 mb-2" style="font-size: 2vw; width: 100px; height: 40px; background-color: rgb(222, 245, 220);" type="number" id="inputNumero" value="1" min="0" max="119" step="1">
                 </div>
               </div>
             </div>
 
           <div class="form-group">
             <label>Texto</label>
-            <textarea class="form-control" id="texto" rows="3"></textarea>
+            <textarea rows="1" class="form-control" id="texto" rows="3" maxlength="25"></textarea>
           </div>
     
           <div class="form-group">
@@ -69,15 +147,18 @@
       </div>
     </div>
     
-    <div class="col-md-3">
-      <div id="puesto1" class="container border-bottom border-top border-info"></div>
-      <div id="puesto2" class="container border-bottom border-info mt-2"></div>
-      <div id="puesto3" class="container border-bottom border-info mt-2"></div>
-      <div id="puesto4" class="container border-bottom border-info mt-2"></div>
-      <div id="puesto5" class="container border-bottom border-info mt-2"></div>
+    <div class="col-md-3 card card-header text-center">
+      <h2>Puestos y numeros</h2>
+      <div id="puesto1" class="container border-bottom border-top border-dark pt-2"></div>
+      <div id="puesto2" class="container border-bottom border-dark mt-2"></div>
+      <div id="puesto3" class="container border-bottom border-dark mt-2"></div>
+      <div id="puesto4" class="container border-bottom border-dark mt-2"></div>
+      <div id="puesto5" class="container border-bottom border-dark mt-2"></div>
     </div>
     
   </div>
+
+
 </body>
     
 
