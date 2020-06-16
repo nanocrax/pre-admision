@@ -26,81 +26,209 @@
 
 <body>
   
-  <div class="row mr-2 ml-3">
-    <div class="col-md-10 h1 mt-1 mb-3 border-bottom border-white"  style="color:rgb(255, 255, 255);font-size: 5vw;text-align: center; font-family:'Times New Roman', Times, serif;">Clinica de Ojos SRL</div>
-    
-    <div class="col-md-2 pt-2" style="text-align: right;">
-      <div style="font-family:‘DS-Digital’; font-size: 2vw; color: rgb(7, 7, 7)">
-          <script type="text/javascript">
-            var today = new Date();
-            var m = today.getMonth() + 1;
-            var mes = (m < 10) ? '0' + m : m;
-            document.write(today.getDate(), '/' + mes, '/' + today.getFullYear());
-          </script>
-      </div>
-      <div id="reloj" style="font-family:‘DS-Digital’;font-size: 2vw; color: rgb(31, 0, 167);"></div>
-    </div>
+<div class="row">
+  <div class="col-md-8 h1 mt-1 mb-3 border-bottom border-white"  style="color:rgb(255, 255, 255);font-size: 2vw;text-align: center; font-family:'Times New Roman', Times, serif;">Clinica de Ojos SRL - Sistema de Pre-admisión</div>
+  <div class="col-md-2 mt-1 mb-3 border-bottom border-white" style="font-family:‘DS-Digital’; font-size: 2vw; color: rgb(7, 7, 7);text-align: right;">
+    <script type="text/javascript">
+      var today = new Date();
+      var m = today.getMonth() + 1;
+      var mes = (m < 10) ? '0' + m : m;
+      document.write(today.getDate(), '/' + mes, '/' + today.getFullYear());
+    </script>
+  </div>
+  <div class="col-md-2 mt-1 mb-3 border-bottom border-white" style="text-align: center;">
+    <div id="reloj" style="font-family:‘DS-Digital’;font-size: 2vw; color: rgb(31, 0, 167);"></div>
+  </div>
 </div>
+    
+
   
 
   <div class="row mr-3 ml-1">
     <div class="col-md-6">
       <div class="card container">
-        <div class="card-header text-center pb-1">
+        <div class="card-header text-center pb-0">
           <h3>Admisión</h3>
         </div>
         <form action="">
           <div class="card-body">
-            <button type="button" class="text-center btn-block mb-3 btn btn-info" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 2vw; height: 50px;">Cualquier Médico</button>
+            <div class="text-center mt-0">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" checked=true type="radio" name="inlineRadioOptions" id="opcion1">
+                <label class="form-check-label" for="opcion1">Atención Común</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="opcion2">
+                <label class="form-check-label" for="opcion2">Reserva de turnos</label>
+              </div>
+            </div>
+          
+            <button type="button" class="text-center btn-block mb-3 btn btn-info" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 2vw; height: 50px;" onclick = "imprAleatorio()">Cualquier Médico</button>
             <table class="table text-center pb-0 mb-0" >
               <tbody>
                 <tr>
                   <td>
-                    <button id="botonSiufiE" type="button" class="text-center btn-block font-weight-bold btn btn-success button1" style="border-bottom-left-radius:0%; border-bottom-right-radius: 0%;" onclick = "imprSelec('SiufiE')">Dr. Siufi E.</button>
+                    <button id="botonSiufiE" type="button" class="text-center btn-block font-weight-bold btn btn-success button1" onclick = "imprSelec('SiufiE', document.getElementById('inputPuestoSiufiE').value)">Dr. Siufi E.</button>
                     <div id="nrosSiufiE"></div>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text selPuestos" for="inputPuestoSiufiE" style="background-color:rgb(48, 111, 136); color:#FFF;"><b>Puesto</b></label>
+                      </div>
+                      <select class="custom-select selPuestos" id="inputPuestoSiufiE">
+                        <option selected>5</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                    </div>
                   </td>
                   <td>
-                    <button id="botonJureA" type="button" class="text-center btn-block font-weight-bold btn btn-success button1" style="border-bottom-left-radius:0%; border-bottom-right-radius: 0%;" onclick = "imprSelec('JureA')">Dr. Jure A. (P)</button>
+                    <button id="botonJureA" type="button" class="text-center btn-block font-weight-bold btn btn-success button1" onclick = "imprSelec('JureA',document.getElementById('inputPuestoJureA').value)">Dr. Jure A. (P)</button>
                     <div id="nrosJureA"></div>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text selPuestos" for="inputPuestoJureA" style="background-color:rgb(48, 111, 136); color:#FFF;"><b>Puesto</b></label>
+                      </div>
+                      <select class="custom-select selPuestos" id="inputPuestoJureA">
+                        <option selected>5</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                    </div>
                   </td>
                   <td>
-                    <button id="botonAse" type="button" class="text-center btn-block font-weight-bold btn btn-success button1" style="border-bottom-left-radius:0%; border-bottom-right-radius: 0%;" onclick = "imprSelec('Ase')">Dra. Ase</button>
+                    <button id="botonAse" type="button" class="text-center btn-block font-weight-bold btn btn-success button1"  onclick = "imprSelec('Ase',document.getElementById('inputPuestoAse').value)">Dra. Ase</button>
                     <div id="nrosAse"></div>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text selPuestos" for="inputPuestoAse" style="background-color:rgb(48, 111, 136); color:#FFF;"><b>Puesto</b></label>
+                      </div>
+                      <select class="custom-select selPuestos" id="inputPuestoAse">
+                        <option selected>5</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                    </div>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <button id="botonVidal" type="button" class="text-center btn-block font-weight-bold btn btn-success button1" style="border-bottom-left-radius:0%; border-bottom-right-radius: 0%;" onclick = "imprSelec('Vidal')">Dr. Vidal</button>
+                    <button id="botonVidal" type="button" class="text-center btn-block font-weight-bold btn btn-success button1"  onclick = "imprSelec('Vidal',document.getElementById('inputPuestoVidal').value)">Dr. Vidal</button>
                     <div id="nrosVidal"></div>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text selPuestos" for="inputPuestoVidal" style="background-color:rgb(48, 111, 136); color:#FFF;"><b>Puesto</b></label>
+                      </div>
+                      <select class="custom-select selPuestos" id="inputPuestoVidal">
+                        <option selected>5</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                    </div>
                   </td>
                   <td > 
-                    <button id="botonSiufiL" type="button" class="text-center btn-block font-weight-bold btn btn-success button1" style="border-bottom-left-radius:0%; border-bottom-right-radius: 0%;" onclick = "imprSelec('SiufiL')">Dr. Siufi L.</button>
+                    <button id="botonSiufiL" type="button" class="text-center btn-block font-weight-bold btn btn-success button1"  onclick = "imprSelec('SiufiL',document.getElementById('inputPuestoSiufiL').value)">Dr. Siufi L.</button>
                     <div id="nrosSiufiL"></div>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text selPuestos" for="inputPuestoSiufiL" style="background-color:rgb(48, 111, 136); color:#FFF;"><b>Puesto</b></label>
+                      </div>
+                      <select class="custom-select selPuestos" id="inputPuestoSiufiL">
+                        <option selected>5</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                    </div>
                   </td>
                   <td>
-                    <button id="botonJureF" type="button" class="text-center btn-block font-weight-bold btn btn-success button1" style="border-bottom-left-radius:0%; border-bottom-right-radius: 0%;" onclick = "imprSelec('JureF')">Dr. Jure F. (H)</button>
+                    <button id="botonJureF" type="button" class="text-center btn-block font-weight-bold btn btn-success button1"  onclick = "imprSelec('JureF',document.getElementById('inputPuestoJureF').value)">Dr. Jure F. (H)</button>
                     <div id="nrosJureF"></div>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text selPuestos" for="inputPuestoJureF" style="background-color:rgb(48, 111, 136); color:#FFF;"><b>Puesto</b></label>
+                      </div>
+                      <select class="custom-select selPuestos" id="inputPuestoJureF">
+                        <option selected>5</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                    </div>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <button id="botonBerrafato" type="button" class="text-center btn-block font-weight-bold btn btn-success button1" style="border-bottom-left-radius:0%; border-bottom-right-radius: 0%;" onclick = "imprSelec('Berrafato')">Dra. Berrafato</button>
+                    <button id="botonBerrafato" type="button" class="text-center btn-block font-weight-bold btn btn-success button1"  onclick = "imprSelec('Berrafato',document.getElementById('inputPuestoBerrafato').value)">Dra. Berrafato</button>
                     <div id="nrosBerrafato"></div>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text selPuestos" for="inputPuestoBerrafato" style="background-color:rgb(48, 111, 136); color:#FFF;"><b>Puesto</b></label>
+                      </div>
+                      <select class="custom-select selPuestos" id="inputPuestoBerrafato">
+                        <option selected>5</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                    </div>
                   </td>
                   <td>
-                    <button id="botonZarifA" type="button" class="text-center btn-block font-weight-bold btn btn-success button1" style="border-bottom-left-radius:0%; border-bottom-right-radius: 0%;" onclick = "imprSelec('ZarifA')">Dra. Zarif A.</button>
+                    <button id="botonZarifA" type="button" class="text-center btn-block font-weight-bold btn btn-success button1"  onclick = "imprSelec('ZarifA',document.getElementById('inputPuestoZarifA').value)">Dra. Zarif A.</button>
                     <div id="nrosZarifA"></div>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text selPuestos" for="inputPuestoZarifA" style="background-color:rgb(48, 111, 136); color:#FFF;"><b>Puesto</b></label>
+                      </div>
+                      <select class="custom-select selPuestos" id="inputPuestoZarifA">
+                        <option selected>5</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                    </div>
                   </td>
                   <td>
-                    <button id="botonTonelli" type="button" class="text-center btn-block font-weight-bold btn btn-success button1" style="border-bottom-left-radius:0%; border-bottom-right-radius: 0%;" onclick = "imprSelec('Tonelli')">Dra. Tonelli</button>
+                    <button id="botonTonelli" type="button" class="text-center btn-block font-weight-bold btn btn-success button1"  onclick = "imprSelec('Tonelli',document.getElementById('inputPuestoTonelli').value)">Dra. Tonelli</button>
                     <div id="nrosTonelli"></div>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text selPuestos" for="inputPuestoTonelli" style="background-color:rgb(48, 111, 136); color:#FFF;"><b>Puesto</b></label>
+                      </div>
+                      <select class="custom-select selPuestos" id="inputPuestoTonelli">
+                        <option selected>5</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                    </div>
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
         </form>
-        
       </div>
     </div>
     

@@ -195,10 +195,9 @@ socket.on('cantTonelli', function(data1) {
   document.getElementById('nrosTonelli').innerHTML = card_Tonelli;
 })
 
-
-function imprSelec(medico) {
+//Funcion para imprimir desde el boton de cada medico
+function imprSelec(medico,puesto) {
   //Necesito el numero 
-  var puesto = 1
   var cant = {
     cant: parseInt(document.getElementById("nros"+medico).textContent)+1,
   };
@@ -219,6 +218,133 @@ function imprSelec(medico) {
       </div>
       <div style="color:#000; width: 255px; text-align: center; font-size: 175%; margin-top:2px">
         <strong>${medico}</strong>
+      </div>
+        <table align="center" style="width: 250px; border-top: #000 1px solid; border-bottom: #000 1px solid; text-align: center; padding: 5px 5px 5px 5px"> 
+            <tr>
+              <td style="width: 125px; border-right: #000 2px solid;">
+                <b style="color: #000;">PUESTO</b>
+                <b style="font-size: 100px;">${puesto}</b>
+              </td>
+
+              <td style="width: 125px; border-left: #000 2px solid;">
+                <b>NÚMERO</b>
+                <b style="font-size: 100px;">${cant.cant}</b>
+              </td>
+            </tr>
+        </table>
+        <div style="padding: 5px 5px 5px 5px">
+          <b>Espere a ser atendido</b>
+          <br>
+          <b>${fecha} | ${hora}</b>
+        </div>
+      
+    </div>
+  </body>
+  `
+  var ventimp = window.open('','Imprimir pre-admision','width=800,height=500,top=120,left=100,toolbar=no,location=no,status=no,menubar=no,scrollbars=yes');
+  ventimp.document.write(ficha);
+  ventimp.document.close();
+  ventimp.print( );
+  ventimp.close();
+}
+
+//Funcion para imprimir desde el boton "Cualquier medico"
+function imprAleatorio() {
+  //Creo un arreglo para poner a los doctores con sus id
+  let doctores = [
+    {
+      id: 1,
+      nombre: "SiufiE",
+      puesto: document.getElementById('inputPuestoSiufiE').value,
+      cant: parseInt(document.getElementById("nrosSiufiE").textContent)+1
+    },
+    {
+      id: 2,
+      nombre: "JureA",
+      puesto: document.getElementById('inputPuestoJureA').value,
+      cant: parseInt(document.getElementById("nrosJureA").textContent)+1
+    },
+    {
+      id: 3,
+      nombre: "Ase",
+      puesto: document.getElementById('inputPuestoAse').value,
+      cant: parseInt(document.getElementById("nrosAse").textContent)+1
+    },
+    {
+      id: 4,
+      nombre: "Vidal",
+      puesto: document.getElementById('inputPuestoVidal').value,
+      cant: parseInt(document.getElementById("nrosVidal").textContent)+1
+    },
+    {
+      id: 5,
+      nombre: "SiufiL",
+      puesto: document.getElementById('inputPuestoSiufiL').value,
+      cant: parseInt(document.getElementById("nrosSiufiL").textContent)+1
+    },
+    {
+      id: 6,
+      nombre: "JureF",
+      puesto: document.getElementById('inputPuestoJureF').value,
+      cant: parseInt(document.getElementById("nrosJureF").textContent)+1
+    },
+    {
+      id: 7,
+      nombre: "Berrafato",
+      puesto: document.getElementById('inputPuestoBerrafato').value,
+      cant: parseInt(document.getElementById("nrosBerrafato").textContent)+1
+    },
+    {
+      id: 8,
+      nombre: "ZarifA",
+      puesto: document.getElementById('inputPuestoZarifA').value,
+      cant: parseInt(document.getElementById("nrosZarifA").textContent)+1
+    },
+    {
+      id: 9,
+      nombre: "Tonelli",
+      puesto: document.getElementById('inputPuestoTonelli').value,
+      cant: parseInt(document.getElementById("nrosTonelli").textContent)+1
+    },
+  ];
+
+  //Necesito un numero del 1 al 9 de forma aleatoria para buscar por id en el arreglo
+  let id = Math.floor(Math.random() * (10 - 1)) + 1
+
+  //En base al numero aleatorio extraigo los valores para imprimir
+  console.log(id)
+  console.log(doctores.find(x => x.id === id))
+  let datos = doctores.find(x => x.id === id)
+
+  //Emito el numero en base al medico para realizar el cambio
+  let cant = {cant: datos.cant}
+  socket.emit('nm'+datos.nombre, cant);
+
+  //En base a lo que se seleccione como opciones (atencion o reserva) se envia el numero del puesto correspondiente
+  let puesto
+
+  if (document.getElementById('opcion2').checked==true) {
+    //Directamente mandamos al puesto 5
+    puesto=5
+  } else {
+    //Utilizamos el puesto que esta seleccionado en pantalla del medico
+    puesto=datos.puesto
+  }
+
+  //Fecha y Hora
+  let today = new Date();
+  let m = today.getMonth() + 1;
+  let fecha = today.getDate()+'/'+m+'/'+today.getFullYear()
+  let hora = today.getHours()+':'+today.getMinutes()
+
+  var ficha = `
+  <body>
+    <div style="width: 255px; text-align: center; border: #000 1px solid;">
+      <div style="color:#000; border-bottom: #000 1px solid;">
+        Clinica de Ojos SRL
+      </div>
+      <div style="color:#000; width: 255px; text-align: center; font-size: 175%; margin-top:2px">
+        <strong>${datos.nombre}</strong>
       </div>
         <table align="center" style="width: 250px; border-top: #000 1px solid; border-bottom: #000 1px solid; text-align: center; padding: 5px 5px 5px 5px"> 
             <tr>
