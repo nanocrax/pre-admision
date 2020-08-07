@@ -325,6 +325,7 @@ function imprAleatorio() {
 
   if (document.getElementById('opcion2').checked==true) {
     //Directamente mandamos al puesto 5
+    console.log()
     puesto=5
   } else {
     //Utilizamos el puesto que esta seleccionado en pantalla del medico

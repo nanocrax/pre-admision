@@ -163,6 +163,10 @@ io.on('connection', function(socket) {
 
 });
 
-server.listen(3000, function() {
-  console.log("Servidor corriendo en http://localhost:3000");
+//Defino puerto
+app.set('port', process.env.PORT || 3000);
+
+//Iniciando server
+server.listen(app.get('port'), function() {
+  console.log(`Servidor corriendo ${app.get('port')}`);
 });
