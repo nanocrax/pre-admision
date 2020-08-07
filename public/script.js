@@ -1,4 +1,4 @@
-const RUTA_API = "http://localhost:8000"
+const RUTA_API = "https://pre-admision.herokuapp.com/"
 const $estado = document.querySelector("#estado"),
     $listaDeImpresoras = document.querySelector("#listaDeImpresoras"),
     $btnLimpiarLog = document.querySelector("#btnLimpiarLog"),

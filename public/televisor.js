@@ -1,4 +1,4 @@
-var socket = io.connect('http://localhost:3000', { 'forceNew': true });
+var socket = io.connect('https://pre-admision.herokuapp.com/', { 'forceNew': true });
 
 socket.on('messages1', function(data1) {
   let nro1=data1[data1.length-1].numero;
